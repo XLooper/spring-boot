@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- namespace路径定义指定错误，https://blog.csdn.net/wo541075754/article/details/52788680 -->
+<mapper namespace="com.bigdataxhy.data.dao.mapper.UserDOMapper">
+    <resultMap id="BaseResultMap" type="com.bigdataxhy.data.domain.datapojo.UserDO">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="real_name" property="realName" jdbcType="VARCHAR"/>
+        <result column="mobile" property="mobile" jdbcType="VARCHAR"/>
+        <result column="pswd" property="pswd" jdbcType="VARCHAR"/>
+        <result column="user_name" property="userName" jdbcType="CHAR"/>
+        <result column="nickname" property="nickname" jdbcType="VARCHAR"/>
+        <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="modifyTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        <!--
+          WARNING - @mbg.generated
+        -->
+        user_id, real_name, user_name, nickname, create_time, modify_time, pswd,mobile
+    </sql>
+
+    <select id="listUser" parameterType="com.bigdataxhy.data.comment.param.BaseParam" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `user` ORDER BY create_time desc;
+    </select>
+
+
+</mapper>
