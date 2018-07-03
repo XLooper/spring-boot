@@ -19,4 +19,11 @@ public interface UserService {
     List<UserInfo> listUserInfos(BaseParam param);
 
     void sign(String mobile, String pswd);
+
+    /**
+     * 根据用户ID获取用户信息
+     * @param id
+     * @return
+     */
+    UserInfo getUserInfoById(Integer id);
 }

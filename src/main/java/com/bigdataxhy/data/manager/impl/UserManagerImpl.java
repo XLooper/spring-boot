@@ -33,4 +33,9 @@ public class UserManagerImpl implements UserManager {
     public List<UserDO> listUser(BaseParam param) {
         return userDOMapper.listUser(param);
     }
+
+    @Override
+    public UserDO getUserById(Integer id) {
+        return userDOMapper.selectByPrimaryKey(id);
+    }
 }

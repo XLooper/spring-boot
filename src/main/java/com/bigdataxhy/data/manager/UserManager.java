@@ -16,4 +16,6 @@ public interface UserManager {
     void insertSelective(UserDO user);
 
     List<UserDO> listUser(BaseParam param);
+
+    UserDO getUserById(Integer id);
 }

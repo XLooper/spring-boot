@@ -67,4 +67,22 @@ public class UserServiceImpl implements UserService {
             userManager.insertSelective(user);
         }
     }
+
+    @Override
+    public UserInfo getUserInfoById(Integer id) {
+        if (id == null || id == 0) {
+            throw new RuntimeException("请输入正确的用户ID");
+        }
+
+        UserDO user = userManager.getUserById(id);
+        UserInfo userInfo = null;
+        if (user != null) {
+            userInfo = new UserInfo();
+
+            userInfo.setUsername(user.getUserName());
+            userInfo.setNickname(user.getNickname());
+            userInfo.setMobile(user.getMobile().substring(0,3) + "******" + user.getMobile().substring(8));
+        }
+        return userInfo;
+    }
 }
