@@ -33,6 +33,25 @@ spring:
           pool-prepared-statements: false
           max-pool-prepared-statement-per-connection-size: 20
 
+    redis:
+      database: 0
+      timeout: 0
+
+      host: 111.230.8.244
+      port: 6379
+      password:
+      pool:
+        max-active: 8
+        max-wait: -1
+        max-idle: 8
+        min-idle: 0
+
+      cluster:
+        max-redirects: 10
+        nodes: 111.230.8.244:6080
+
+
+
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   type-aliases-package: com.bigdataxhy.data.domain.datapojo

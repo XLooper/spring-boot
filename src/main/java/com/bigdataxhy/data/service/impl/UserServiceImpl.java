@@ -85,4 +85,11 @@ public class UserServiceImpl implements UserService {
         }
         return userInfo;
     }
+
+
+    public static void main(String[] args) {
+
+        System.out.println();
+
+    }
 }
