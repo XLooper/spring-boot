@@ -1,4 +1,4 @@
-package com.bigdataxhy.data.interceptor;
+package com.bigdataxhy.data.comment.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.AfterReturning;
