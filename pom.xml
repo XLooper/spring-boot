@@ -135,6 +135,20 @@
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
 
+		<!-- 数据库加密 -->
+		<dependency>
+			<groupId>com.github.ulisesbocchio</groupId>
+			<artifactId>jasypt-spring-boot-starter</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+
+        <!-- spring test class -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+        </dependency>
+
+
     </dependencies>
 
     <profiles>

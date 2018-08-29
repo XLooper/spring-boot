@@ -13,8 +13,8 @@ spring:
           driver-class-name: com.mysql.jdbc.Driver
           #基本属性
           url: jdbc:mysql://111.230.8.244:3306/big_data_prod?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true
-          username: root
-          password: xiangHY000000
+          username: ENC(kHXWcsHlE7mZ6T/kc8lp+Q==)
+          password: ENC(M/sUZmWfJ6LLwEHWFg3SKWUhGqULVj/t)
           #配置初始化大小/最小/最大
           initial-size: 1
           min-idle: 1
@@ -63,3 +63,7 @@ pagehelper:
     supportMethodsArguments: true
     params: count=countSql
     returnPageInfo: check
+
+jasypt:
+  encryptor:
+    password: encrypttest
