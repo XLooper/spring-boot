@@ -7,6 +7,7 @@ package com.bigdataxhy.data.domain.bizpojo.enums.exception;
 public enum ErrorEnum {
 
     SYSTEM_ERROR(99999, "系统异常"),
+    SYSTEM_NO_DATA(90000, "未查询到数据"),
     ;
     private  int code;
     private String value;

@@ -3,7 +3,9 @@ package com.bigdataxhy.data.service.impl;
 import com.bigdataxhy.core.utils.SecurityUtil;
 import com.bigdataxhy.data.comment.param.BaseParam;
 import com.bigdataxhy.data.comment.user.UserInfo;
+import com.bigdataxhy.data.domain.bizpojo.enums.exception.ErrorEnum;
 import com.bigdataxhy.data.domain.datapojo.UserDO;
+import com.bigdataxhy.data.exception.BusinessException;
 import com.bigdataxhy.data.manager.UserManager;
 import com.bigdataxhy.data.service.UserService;
 import org.apache.commons.lang3.StringUtils;
@@ -71,18 +73,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserInfo getUserInfoById(Integer id) {
         if (id == null || id == 0) {
-            throw new RuntimeException("请输入正确的用户ID");
+            throw new BusinessException(ErrorEnum.SYSTEM_ERROR);
         }
 
         UserDO user = userManager.getUserById(id);
-        UserInfo userInfo = null;
-        if (user != null) {
-            userInfo = new UserInfo();
-
-            userInfo.setUsername(user.getUserName());
-            userInfo.setNickname(user.getNickname());
-            userInfo.setMobile(user.getMobile().substring(0,3) + "******" + user.getMobile().substring(8));
+        if (user == null) {
+            throw new BusinessException(ErrorEnum.SYSTEM_NO_DATA);
         }
+
+        UserInfo userInfo = new UserInfo();
+        userInfo.setUsername(user.getUserName());
+        userInfo.setNickname(user.getNickname());
+        userInfo.setMobile(user.getMobile().substring(0,3) + "******" + user.getMobile().substring(8));
         return userInfo;
     }
 
