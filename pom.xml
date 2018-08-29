@@ -116,6 +116,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-redis</artifactId>
+            <version>1.4.1.RELEASE</version>
 		</dependency>
 
         <!-- 使用log4j前需要先排除spring boot默认的日志框架Logback -->

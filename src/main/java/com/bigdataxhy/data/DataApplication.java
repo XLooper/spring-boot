@@ -5,7 +5,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-@MapperScan(basePackages = "com.bigdataxhy.data.dao.mapper")
+@MapperScan(basePackages = {"com.bigdataxhy.data.dao.mapper"})
 public class DataApplication {
 
 	public static void main(String[] args) {

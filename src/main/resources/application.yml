@@ -41,10 +41,11 @@ spring:
       port: 6379
       password:
       pool:
-        max-active: 8
-        max-wait: -1
-        max-idle: 8
-        min-idle: 0
+        spring.redis.pool.max-active: 100
+        spring.redis.pool.max-wait: -1
+        spring.redis.pool.max-idle: 20
+        spring.redis.pool.min-idle: 0
+        spring.redis.timeout: 30000
 
       cluster:
         max-redirects: 10

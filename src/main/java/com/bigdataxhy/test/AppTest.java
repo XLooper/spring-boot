@@ -1,13 +1,15 @@
 package com.bigdataxhy.test;
 
 import com.bigdataxhy.data.DataApplication;
-import javafx.application.Application;
+import com.bigdataxhy.data.service.RedisService;
 import org.jasypt.encryption.StringEncryptor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import javax.annotation.Resource;
 
 /**
  * @author xianghy
@@ -20,6 +22,9 @@ public class AppTest {
     @Autowired
     StringEncryptor stringEncryptor;
 
+    @Resource
+    RedisService redisService;
+
     @Test
     public void test() {
         String userName = stringEncryptor.encrypt("root");
@@ -29,4 +34,11 @@ public class AppTest {
         System.out.println(password);
     }
 
+    public static final String REDIS_TEST_KEY = "REDIS_TEST_KEY";
+    @Test
+    public void redisTest() {
+
+        redisService.add(REDIS_TEST_KEY, "HELLO WORLD");
+        System.out.println(redisService.get(REDIS_TEST_KEY));
+    }
 }
